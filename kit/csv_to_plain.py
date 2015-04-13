@@ -197,7 +197,7 @@ def stream_to_outfile(fn, sta_id, end_nonincl_id, stream, append_hist_len, if_la
         for j in range(1, len(inst)):
             fp.write(' %d:%f' % (j - 1, inst[j]))
         fp.write('#%s\n'% (stream[i][date_id]))
-    print fn, ': TOT =', tot, 'POS =', pos_tot, 'POS_RATE =', pos_tot / (tot + 0.0)
+    #print fn, ': TOT =', tot, 'POS =', pos_tot, 'POS_RATE =', pos_tot / (tot + 0.0)
 
     fp.close()
 

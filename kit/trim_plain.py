@@ -2,9 +2,6 @@
 
 import sys
 
-import numpy
-import xgboost
-
 
 
 

@@ -38,21 +38,21 @@ for stock in todolst:
     
     
     #csv to plain and then trimmed
-    ##os.system('./kit/csv_to_plain.py %s %s %s' % (stock_csv, plain_local, stock))
+    os.system('./kit/csv_to_plain.py %s %s %s' % (stock_csv, plain_local, stock))
 
-    ##plain_marco = plain_local + '/' + stock
-    ##year = 2014
-    ##trim_len = 0
+    plain_marco = plain_local + '/' + stock
+    year = 2014
+    trim_len = 0
     #train
-    ##for tset in ['train', 'cv', 'eval']:
-    ##    os.system('./kit/trim_plain.py %s.%s %s.%s.trim %d %d' % (plain_marco, tset, plain_marco, tset, year, trim_len))
+    for tset in ['train', 'cv', 'eval']:
+        os.system('./kit/trim_plain.py %s.%s %s.%s.trim %d %d' % (plain_marco, tset, plain_marco, tset, year, trim_len))
 
 
 
-#for tset in ['train', 'cv', 'eval']:
-#    merge_plain = OUT_DIR_ROOT + '/' + MY_LOCAL + '/' + tset + '.plain'
-#    #print merge_plain
-#    os.system('cat %s/*%s.trim > %s' % (plain_local, tset, merge_plain))
-#
-#    merge_xgb = OUT_DIR_ROOT + '/' + MY_LOCAL + '/' + tset + '.xgb'
-#    os.system('kit/plain_to_xgb.py %s %s' % (merge_plain, merge_xgb))
+for tset in ['train', 'cv', 'eval']:
+    merge_plain = OUT_DIR_ROOT + '/' + MY_LOCAL + '/' + tset + '.plain'
+    #print merge_plain
+    os.system('cat %s/*%s.trim > %s' % (plain_local, tset, merge_plain))
+
+    merge_xgb = OUT_DIR_ROOT + '/' + MY_LOCAL + '/' + tset + '.xgb'
+    os.system('kit/plain_to_xgb.py %s %s' % (merge_plain, merge_xgb))
